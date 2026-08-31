@@ -44,12 +44,33 @@
             font-weight: bold;
             border-radius: 5px;
         }
+        /* Štýl pre obal loga */
+  .logo-container {
+    text-align: center; /* Na mobiloch zarovná na stred */
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .logo-container img {
+    height: 50px; /* Nastav výšku loga podľa potreby */
+    width: auto;
+  }
+
+  /* Štýl pre počítače a väčšie obrazovky */
+  @media (min-width: 768px) {
+    .logo-container {
+      text-align: left; /* Na počítači zarovná vľavo */
+      padding: 10px;
+    }
+  }
     </style>
 </head>
 <body>
-    <a href="https://taticlean.co.uk">
-      <img src="Logo.png" alt="Taticlean Logo" style="position: absolute; top: 10px; left: 30px; height: 90px;">
-    </a>
+    <div class="logo-container">
+  <a href="https://taticlean.co.uk">
+    <img src="Logo.png" alt="Taticlean Logo">
+  </a>
+</div>
 
     <h1>Tati Cleaning - Terms & Conditions </h1>
     <div class="subtitle">Professional • Reliable • Affordable </div>

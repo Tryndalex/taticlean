@@ -48,11 +48,42 @@
 </head>
 <body>
 
-    <div class="md:hidden flex items-center justify-center pt-4">
+     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-pink-100 px-6 py-0 shadow-sm md:h-20 flex items-center">
+        <div class="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-center gap-4 relative">
+            
+            <div class="absolute -top-5 left-0 bg-white px-6 py-4 logo-ellipse shadow-md border border-pink-100 hidden md:flex items-center justify-center z-50 w-[264px] h-[168px] overflow-hidden">
+                <a href="#home" class="w-full h-full flex items-center justify-center">
+                    <img src="Logo.png" alt="Tati Cleaning Logo" class="w-full h-full object-cover scale-105 transition-transform hover:scale-110">
+                </a>
+            </div>
+
+            <div class="md:hidden flex items-center justify-center pt-4">
                 <a href="#home">
                     <img src="Logo.png" alt="Tati Cleaning Logo" class="h-20 w-auto object-contain">
                 </a>
             </div>
+
+            <div class="flex items-center gap-6 font-medium text-slate-600 md:ml-[280px]">
+                <a href="#home" class="hover:text-[#e05a88] transition-colors">Home</a>
+                <a href="#services" class="hover:text-[#e05a88] transition-colors">Services</a>
+                <a href="#why-us" class="hover:text-[#e05a88] transition-colors">Why Choose Us</a>
+                <a href="#pricing" class="hover:text-[#e05a88] transition-colors">Pricing</a>
+                <a href="https://taticlean.co.uk/terms" class="hover:text-[#e05a88] transition-colors">Terms and Condition</a>
+            </div>
+
+            <div class="flex items-center gap-4 flex-wrap justify-center pb-4 md:pb-0">
+                <a href="tel:01189550100" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-2">
+                    <div class="w-9 h-9 border border-pink-200 rounded-full flex items-center justify-center text-[#e05a88]">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <span>07401 832 123</span>
+                </a>
+                <a href="#contact" class="bg-[#e05a88] text-white font-bold px-5 py-2.5 rounded-full shadow-md hover:bg-[#d24d79] transition-all transform hover:-translate-y-0.5">
+                    Book Now
+                </a>
+            </div>
+        </div>
+    </nav>
 
     <h1>Tati Cleaning - Terms & Conditions </h1>
     <div class="subtitle">Professional • Reliable • Affordable </div>

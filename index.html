@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -23,26 +24,80 @@
         .logo-ellipse {
             border-radius: 50% / 50%;
         }
+
+        /* Efekt shiny hviezdičiek výhradne pre #home a footer */
+        #home, footer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shiny-sparkles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+        nav {
+            font-family: 'Outfit', sans-serif;
+            text-align: center;
+            letter-spacing: 0.5px; /* Jemné rozostupy písmen pre lepší efekt */
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 scroll-smooth">
 
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-pink-100 px-6 py-0 shadow-sm md:h-20 flex items-center">
-        <div class="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-center gap-4 relative">
+    <!-- NAVIGÁCIA -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-pink-100 px-4 md:px-6 py-2 md:py-0 shadow-sm md:h-20 flex items-center">
+        <div class="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-center relative">
             
+            <!-- MOBILNÁ HLAVIČKA (Zobrazuje sa len na malých obrazovkách) -->
+            <div class="flex md:hidden items-center justify-between w-full py-1">
+                <!-- Mobilné Logo -->
+                <a href="#home" class="flex items-center">
+                    <img src="Logo.png" alt="Tati Cleaning Logo" class="h-12 w-auto object-contain">
+                </a>
+
+                <!-- Akcie na mobile: Telefon + Book Now + Hamburger Menu -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <a href="tel:07401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-1.5 text-xs sm:text-sm">
+                        <div class="w-8 h-8 border border-pink-200 rounded-full flex items-center justify-center text-[#e05a88]">
+                            <i class="fa-solid fa-phone text-xs"></i>
+                        </div>
+                        <span class="hidden sm:inline">07401 832 123</span>
+                    </a>
+                    
+                    <a href="#contact" class="bg-[#e05a88] text-white font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md text-xs sm:text-sm hover:bg-[#d24d79] transition-all">
+                        Book Now
+                    </a>
+
+                    <!-- Tlačidlo Hamburger / Harmonika -->
+                    <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="w-9 h-9 flex items-center justify-center text-slate-700 hover:text-[#e05a88] focus:outline-none ml-1">
+                        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- MOBILNÁ HARMONIKA (Menu položky rozbaľované na mobile) -->
+            <div id="mobileMenu" class="hidden md:hidden w-full flex-col gap-3 pt-3 pb-3 border-t border-pink-100 font-medium text-slate-600 text-sm">
+                <a href="#home" class="hover:text-[#e05a88] py-1 transition-colors">Home</a>
+                <a href="#services" class="hover:text-[#e05a88] py-1 transition-colors">Services</a>
+                <a href="#why-us" class="hover:text-[#e05a88] py-1 transition-colors">Why Choose Us</a>
+                <a href="#pricing" class="hover:text-[#e05a88] py-1 transition-colors">Pricing</a>
+                <a href="https://taticlean.co.uk/terms" class="hover:text-[#e05a88] py-1 transition-colors">Terms and Condition</a>
+            </div>
+
+            <!-- DESKTOP LOGO (Zobrazuje sa len na PC) -->
             <div class="absolute -top-5 left-0 bg-white px-6 py-4 logo-ellipse shadow-md border border-pink-100 hidden md:flex items-center justify-center z-50 w-[264px] h-[168px] overflow-hidden">
                 <a href="#home" class="w-full h-full flex items-center justify-center">
                     <img src="Logo.png" alt="Tati Cleaning Logo" class="w-full h-full object-cover scale-105 transition-transform hover:scale-110">
                 </a>
             </div>
 
-            <div class="md:hidden flex items-center justify-center pt-4">
-                <a href="#home">
-                    <img src="Logo.png" alt="Tati Cleaning Logo" class="h-20 w-auto object-contain">
-                </a>
-            </div>
-
-            <div class="flex items-center gap-6 font-medium text-slate-600 md:ml-[280px]">
+            <!-- DESKTOP MENU POLOŽKY (Zobrazujú sa len na PC) -->
+            <div class="hidden md:flex items-center gap-6 font-medium text-slate-600 md:ml-[280px]">
                 <a href="#home" class="hover:text-[#e05a88] transition-colors">Home</a>
                 <a href="#services" class="hover:text-[#e05a88] transition-colors">Services</a>
                 <a href="#why-us" class="hover:text-[#e05a88] transition-colors">Why Choose Us</a>
@@ -50,8 +105,9 @@
                 <a href="https://taticlean.co.uk/terms" class="hover:text-[#e05a88] transition-colors">Terms and Condition</a>
             </div>
 
-            <div class="flex items-center gap-4 flex-wrap justify-center pb-4 md:pb-0">
-                <a href="tel:01189550100" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-2">
+            <!-- DESKTOP AKCIE (Zobrazujú sa len na PC) -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="tel:07401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-2">
                     <div class="w-9 h-9 border border-pink-200 rounded-full flex items-center justify-center text-[#e05a88]">
                         <i class="fa-solid fa-phone"></i>
                     </div>
@@ -61,6 +117,7 @@
                     Book Now
                 </a>
             </div>
+
         </div>
     </nav>
 
@@ -256,52 +313,52 @@
     </section>
 
     <section id="contact" class="py-20 px-6 max-w-4xl mx-auto">
-    <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Get Your Free Quote Today</h2>
-        <p class="text-slate-600 mt-4">Fill out the brief form below and our Reading team will connect with you immediately.</p>
-    </div>
-
-    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-white p-8 md:p-10 rounded-3xl border border-pink-100 shadow-xl relative overflow-hidden">
-        <input type="hidden" name="access_key" value="14419c5c-bb2e-46e0-bdf0-0569b033d694">
-        
-        <div class="absolute top-0 left-0 w-full h-2 bg-[#e05a88]"></div>
-        
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Your Name</label>
-                <input type="text" name="name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="John Doe" required>
-            </div>
-            <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Phone Number</label>
-                <input type="tel" name="phone" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="07123 456789" required>
-            </div>
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Get Your Free Quote Today</h2>
+            <p class="text-slate-600 mt-4">Fill out the brief form below and our Reading team will connect with you immediately.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Email Address</label>
-                <input type="email" name="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="john@example.com" required>
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-white p-8 md:p-10 rounded-3xl border border-pink-100 shadow-xl relative overflow-hidden">
+            <input type="hidden" name="access_key" value="14419c5c-bb2e-46e0-bdf0-0569b033d694">
+            
+            <div class="absolute top-0 left-0 w-full h-2 bg-[#e05a88]"></div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Your Name</label>
+                    <input type="text" name="name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="John Doe" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Phone Number</label>
+                    <input type="tel" name="phone" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="07123 456789" required>
+                </div>
             </div>
-            <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Service Needed</label>
-                <select name="service" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm">
-                    <option value="Regular Domestic Cleaning">Regular Domestic Cleaning</option>
-                    <option value="End of Tenancy Clean">End of Tenancy Clean</option>
-                    <option value="Deep / Spring Clean">Deep / Spring Clean</option>
-                </select>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Email Address</label>
+                    <input type="email" name="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="john@example.com" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Service Needed</label>
+                    <select name="service" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm">
+                        <option value="Regular Domestic Cleaning">Regular Domestic Cleaning</option>
+                        <option value="End of Tenancy Clean">End of Tenancy Clean</option>
+                        <option value="Deep / Spring Clean">Deep / Spring Clean</option>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Message & Property Size</label>
-            <textarea name="message" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="Tell us about your property (e.g. 3-bedroom house, pets...)" required></textarea>
-        </div>
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Message & Property Size</label>
+                <textarea name="message" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="Tell us about your property (e.g. 3-bedroom house, pets...)" required></textarea>
+            </div>
 
-        <button type="submit" class="w-full bg-[#e05a88] text-white font-bold py-4 rounded-xl shadow-lg hover:bg-[#d24d79] transition-all transform hover:-translate-y-0.5 tracking-wide text-sm uppercase">
-            Send Estimate Request
-        </button>
-    </form>
-</section>
+            <button type="submit" class="w-full bg-[#e05a88] text-white font-bold py-4 rounded-xl shadow-lg hover:bg-[#d24d79] transition-all transform hover:-translate-y-0.5 tracking-wide text-sm uppercase">
+                Send Estimate Request
+            </button>
+        </form>
+    </section>
 
     <footer class="bg-slate-900 text-white pt-16 pb-8 px-6">
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 pb-12 border-b border-slate-800">
@@ -332,112 +389,134 @@
             <p>&copy; 2026 TATI CLEANING. All Rights Reserved.</p>
         </div>
     </footer>
-   
-            <!-- Efekt shiny hviezdičiek výhradne pre #home a footer -->
-<style>
-  #home, footer {
-    position: relative; /* Zabezpečí, že plátno ostane vo vnútri sekcie */
-    overflow: hidden;   /* Zabraňuje presahu hviezdičiek mimo okrajov */
-  }
 
-  .shiny-sparkles-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Umožňuje interakciu s prvkami pod plátnom */
-    z-index: 5;
-  }
-</style>
+    <!-- SKRIPTY -->
+    
+    <!-- Skript 1: Otváranie / zatváranie mobilnej harmoniky -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
 
-<script>
-  (function() {
-    const targets = document.querySelectorAll('#home, footer');
-    if (!targets.length) return;
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener('click', function() {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+              mobileMenu.classList.add('hidden');
+              mobileMenu.classList.remove('flex');
+              menuIcon.classList.remove('fa-xmark');
+              menuIcon.classList.add('fa-bars');
+            } else {
+              mobileMenu.classList.remove('hidden');
+              mobileMenu.classList.add('flex');
+              menuIcon.classList.remove('fa-bars');
+              menuIcon.classList.add('fa-xmark');
+            }
+          });
 
-    targets.forEach(target => {
-      const canvas = document.createElement('canvas');
-      canvas.className = 'shiny-sparkles-canvas';
-      target.appendChild(canvas);
-
-      const ctx = canvas.getContext('2d');
-      const sparkles = [];
-      const maxSparkles = 25; // Počet hviezdičiek pre každú sekciu
-
-      function resize() {
-        canvas.width = target.offsetWidth;
-        canvas.height = target.offsetHeight;
-      }
-      window.addEventListener('resize', resize);
-      resize();
-
-      class Sparkle {
-        constructor() {
-          this.reset();
+          // Zavrieť harmoniku po kliknutí na akýkoľvek odkaz v menu
+          mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+              mobileMenu.classList.add('hidden');
+              mobileMenu.classList.remove('flex');
+              if (menuIcon) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+              }
+            });
+          });
         }
+      });
+    </script>
 
-        reset() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 8 + 4;
-          this.alpha = 0;
-          this.maxAlpha = Math.random() * 0.7 + 0.3;
-          this.speed = Math.random() * 0.02 + 0.008;
-          this.growing = true;
-        }
+    <!-- Skript 2: Efekt shiny hviezdičiek pre #home a footer -->
+    <script>
+      (function() {
+        const targets = document.querySelectorAll('#home, footer');
+        if (!targets.length) return;
 
-        update() {
-          if (this.growing) {
-            this.alpha += this.speed;
-            if (this.alpha >= this.maxAlpha) this.growing = false;
-          } else {
-            this.alpha -= this.speed;
-            if (this.alpha <= 0) this.reset();
+        targets.forEach(target => {
+          const canvas = document.createElement('canvas');
+          canvas.className = 'shiny-sparkles-canvas';
+          target.appendChild(canvas);
+
+          const ctx = canvas.getContext('2d');
+          const sparkles = [];
+          const maxSparkles = 25;
+
+          function resize() {
+            canvas.width = target.offsetWidth;
+            canvas.height = target.offsetHeight;
           }
-        }
+          window.addEventListener('resize', resize);
+          resize();
 
-        draw() {
-          ctx.save();
-          ctx.translate(this.x, this.y);
-          ctx.globalAlpha = this.alpha;
-          
-          ctx.fillStyle = '#FFFFFF';
-          ctx.beginPath();
-          ctx.moveTo(0, -this.size);
-          ctx.quadraticCurveTo(0, 0, this.size, 0);
-          ctx.quadraticCurveTo(0, 0, 0, this.size);
-          ctx.quadraticCurveTo(0, 0, -this.size, 0);
-          ctx.quadraticCurveTo(0, 0, 0, -this.size);
-          ctx.closePath();
-          ctx.fill();
+          class Sparkle {
+            constructor() {
+              this.reset();
+            }
 
-          ctx.fillStyle = '#FFE600';
-          ctx.beginPath();
-          ctx.arc(0, 0, this.size * 0.25, 0, Math.PI * 2);
-          ctx.fill();
+            reset() {
+              this.x = Math.random() * canvas.width;
+              this.y = Math.random() * canvas.height;
+              this.size = Math.random() * 8 + 4;
+              this.alpha = 0;
+              this.maxAlpha = Math.random() * 0.7 + 0.3;
+              this.speed = Math.random() * 0.02 + 0.008;
+              this.growing = true;
+            }
 
-          ctx.restore();
-        }
-      }
+            update() {
+              if (this.growing) {
+                this.alpha += this.speed;
+                if (this.alpha >= this.maxAlpha) this.growing = false;
+              } else {
+                this.alpha -= this.speed;
+                if (this.alpha <= 0) this.reset();
+              }
+            }
 
-      for (let i = 0; i < maxSparkles; i++) {
-        sparkles.push(new Sparkle());
-      }
+            draw() {
+              ctx.save();
+              ctx.translate(this.x, this.y);
+              ctx.globalAlpha = this.alpha;
+              
+              ctx.fillStyle = '#FFFFFF';
+              ctx.beginPath();
+              ctx.moveTo(0, -this.size);
+              ctx.quadraticCurveTo(0, 0, this.size, 0);
+              ctx.quadraticCurveTo(0, 0, 0, this.size);
+              ctx.quadraticCurveTo(0, 0, -this.size, 0);
+              ctx.quadraticCurveTo(0, 0, 0, -this.size);
+              ctx.closePath();
+              ctx.fill();
 
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        sparkles.forEach(s => {
-          s.update();
-          s.draw();
+              ctx.fillStyle = '#FFE600';
+              ctx.beginPath();
+              ctx.arc(0, 0, this.size * 0.25, 0, Math.PI * 2);
+              ctx.fill();
+
+              ctx.restore();
+            }
+          }
+
+          for (let i = 0; i < maxSparkles; i++) {
+            sparkles.push(new Sparkle());
+          }
+
+          function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            sparkles.forEach(s => {
+              s.update();
+              s.draw();
+            });
+            requestAnimationFrame(animate);
+          }
+
+          animate();
         });
-        requestAnimationFrame(animate);
-      }
-
-      animate();
-    });
-  })();
-</script>
-       
-        </body>
-        </html>
+      })();
+    </script>
+</body>
+</html>

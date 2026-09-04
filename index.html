@@ -45,17 +45,16 @@
 
     <!-- NAVIGÁCIA (Prepínanie pri šírke 1200px) -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-pink-100 px-4 min-[1200px]:px-6 shadow-sm">
-        <div class="max-w-6xl mx-auto w-full flex flex-col justify-center relative">
+        <div class="max-w-8xl mx-auto w-full flex flex-col justify-center relative">
             
-            <!-- SPOLOČNÉ OVÁLNE LOGO -->
-            <div class="absolute -top-2 min-[1200px]:-top-5 left-0 bg-white px-3 py-2 min-[1200px]:px-6 min-[1200px]:py-4 logo-ellipse shadow-md border border-pink-100 flex items-center justify-center z-50 w-[145px] h-[92px] sm:w-[165px] sm:h-[105px] min-[1200px]:w-[264px] min-[1200px]:h-[168px] overflow-hidden">
-                <a href="#home" class="w-full h-full flex items-center justify-center">
-                    <img src="Logo.png" alt="Tati Cleaning Logo" class="w-full h-full object-cover scale-105 transition-transform hover:scale-110">
-                </a>
-            </div>
-
+       <!-- SPOLOČNÉ OVÁLNE LOGO -->
+        <div class="absolute -top-2 min-[1200px]:top-0 left-0 bg-white px-3 py-2 min-[1200px]:px-2 min-[1200px]:py-2 logo-ellipse shadow-md border border-pink-100 flex items-center justify-center z-50 w-[145px] h-[92px] sm:w-[260px] sm:h-[190px] min-[1200px]:w-[500px] min-[1200px]:h-[310px] overflow-hidden">
+            <a href="#home" class="w-full h-full flex items-center justify-center">
+                <img src="Logo.png" alt="Tati Cleaning Logo" class="w-full h-full object-cover scale-110 transition-transform hover:scale-115">
+            </a>
+        </div>
             <!-- HLAVNÁ LIŠTA NAVIGÁCIE (Pevná výška: pod 1200px = 64px / nad 1200px = 80px) -->
-            <div class="h-16 min-[1200px]:h-20 flex items-center justify-between w-full">
+            <div class="h-10 min-[1200px]:h-14 flex items-center justify-between w-full">
 
                 <!-- MOBILNÁ PRAVÁ ČASŤ (Aktivuje sa pod 1200px) -->
                 <div class="flex min-[1200px]:hidden items-center justify-end w-full ml-auto pl-[145px] sm:pl-[165px] gap-1.5 sm:gap-3">
@@ -76,15 +75,14 @@
                     </button>
                 </div>
 
-                <!-- DESKTOP MENU POLOŽKY (Zobrazujú sa len nad 1200px) -->
-                <div class="hidden min-[1200px]:flex items-center gap-6 font-medium text-slate-600 min-[1200px]:ml-[280px]">
-                    <a href="#home" class="hover:text-[#e05a88] transition-colors">Home</a>
-                    <a href="#services" class="hover:text-[#e05a88] transition-colors">Services</a>
-                    <a href="#why-us" class="hover:text-[#e05a88] transition-colors">Why Choose Us</a>
-                    <a href="#pricing" class="hover:text-[#e05a88] transition-colors">Pricing</a>
-                    <a href="https://taticlean.co.uk/terms" class="hover:text-[#e05a88] transition-colors">Terms and Condition</a>
-                </div>
-
+                <!-- DESKTOP MENU POLOŽKY -->
+<div class="hidden min-[1200px]:flex items-center gap-15 font-medium text-slate-600 min-[1200px]:ml-[280px]">
+    <a href="#home" class="hover:text-[#e05a88] transition-colors">Home</a>
+    <a href="#services" class="hover:text-[#e05a88] transition-colors">Services</a>
+    <a href="#why-us" class="hover:text-[#e05a88] transition-colors">Why Choose Us</a>
+    <a href="#pricing" class="hover:text-[#e05a88] transition-colors">Pricing</a>
+    <a href="https://taticlean.co.uk/terms" class="hover:text-[#e05a88] transition-colors">Terms and Condition</a>
+</div>
                 <!-- DESKTOP AKCIE (Zobrazujú sa len nad 1200px) -->
                 <div class="hidden min-[1200px]:flex items-center gap-4">
                     <a href="tel:07401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-2">
@@ -100,14 +98,14 @@
 
             </div>
 
-            <!-- MOBILNÁ HARMONIKA (Zobrazuje sa pri otvorení pod 1200px) -->
-            <div id="mobileMenu" class="hidden min-[1200px]:!hidden w-full flex-col gap-3 pt-2 pb-4 border-t border-pink-100 font-medium text-slate-600 text-sm">
-                <a href="#home" class="hover:text-[#e05a88] py-1 transition-colors">Home</a>
-                <a href="#services" class="hover:text-[#e05a88] py-1 transition-colors">Services</a>
-                <a href="#why-us" class="hover:text-[#e05a88] py-1 transition-colors">Why Choose Us</a>
-                <a href="#pricing" class="hover:text-[#e05a88] py-1 transition-colors">Pricing</a>
-                <a href="https://taticlean.co.uk/terms" class="hover:text-[#e05a88] py-1 transition-colors">Terms and Condition</a>
-            </div>
+<!-- MOBILNÁ HARMONIKA (Absolútne pozicionovaná – nezväčšuje výšku navigácie) -->
+<div id="mobileMenu" class="hidden min-[1200px]:!hidden absolute top-full right-4 z-50 w-fit flex-col items-end text-right gap-2.5 p-5 mt-2 bg-[#e05a88] text-white rounded-2xl shadow-2xl font-medium text-sm border border-pink-300/30">
+    <a href="#home" class="hover:text-pink-200 py-1 transition-colors whitespace-nowrap">Home</a>
+    <a href="#services" class="hover:text-pink-200 py-1 transition-colors whitespace-nowrap">Services</a>
+    <a href="#why-us" class="hover:text-pink-200 py-1 transition-colors whitespace-nowrap">Why Choose Us</a>
+    <a href="#pricing" class="hover:text-pink-200 py-1 transition-colors whitespace-nowrap">Pricing</a>
+    <a href="https://taticlean.co.uk/terms" class="hover:text-pink-200 py-1 transition-colors whitespace-nowrap">Terms and Condition</a>
+</div>
 
         </div>
     </nav>

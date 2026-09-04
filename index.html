@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -20,12 +19,12 @@
             --brand-pink-light: #f7a3bf;
             --brand-pink-bg: #fff0f5;
         }
-        /* Dokonalý ovál/elipsa pre logo podľa návrhu */
+        /* Dokonalý ovál/elipsa pre logo */
         .logo-ellipse {
             border-radius: 50% / 50%;
         }
 
-        /* Efekt shiny hviezdičiek výhradne pre #home a footer */
+        /* Efekt shiny hviezdičiek pre #home a footer */
         #home, footer {
             position: relative;
             overflow: hidden;
@@ -40,28 +39,26 @@
             pointer-events: none;
             z-index: 5;
         }
-        nav {
-            font-family: 'Outfit', sans-serif;
-            text-align: center;
-            letter-spacing: 0.5px; /* Jemné rozostupy písmen pre lepší efekt */
-        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 scroll-smooth">
 
-    <!-- NAVIGÁCIA -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-pink-100 px-4 md:px-6 py-2 md:py-0 shadow-sm md:h-20 flex items-center">
-        <div class="max-w-6xl mx-auto w-full flex flex-col md:flex-row justify-between items-center relative">
+    <!-- NAVIGÁCIA (Prepínanie pri šírke 1200px) -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-pink-100 px-4 min-[1200px]:px-6 shadow-sm">
+        <div class="max-w-6xl mx-auto w-full flex flex-col justify-center relative">
             
-            <!-- MOBILNÁ HLAVIČKA (Zobrazuje sa len na malých obrazovkách) -->
-            <div class="flex md:hidden items-center justify-between w-full py-1">
-                <!-- Mobilné Logo -->
-                <a href="#home" class="flex items-center">
-                    <img src="Logo.png" alt="Tati Cleaning Logo" class="h-12 w-auto object-contain">
+            <!-- SPOLOČNÉ OVÁLNE LOGO -->
+            <div class="absolute -top-2 min-[1200px]:-top-5 left-0 bg-white px-3 py-2 min-[1200px]:px-6 min-[1200px]:py-4 logo-ellipse shadow-md border border-pink-100 flex items-center justify-center z-50 w-[145px] h-[92px] sm:w-[165px] sm:h-[105px] min-[1200px]:w-[264px] min-[1200px]:h-[168px] overflow-hidden">
+                <a href="#home" class="w-full h-full flex items-center justify-center">
+                    <img src="Logo.png" alt="Tati Cleaning Logo" class="w-full h-full object-cover scale-105 transition-transform hover:scale-110">
                 </a>
+            </div>
 
-                <!-- Akcie na mobile: Telefon + Book Now + Hamburger Menu -->
-                <div class="flex items-center gap-2 sm:gap-3">
+            <!-- HLAVNÁ LIŠTA NAVIGÁCIE (Pevná výška: pod 1200px = 64px / nad 1200px = 80px) -->
+            <div class="h-16 min-[1200px]:h-20 flex items-center justify-between w-full">
+
+                <!-- MOBILNÁ PRAVÁ ČASŤ (Aktivuje sa pod 1200px) -->
+                <div class="flex min-[1200px]:hidden items-center justify-end w-full ml-auto pl-[145px] sm:pl-[165px] gap-1.5 sm:gap-3">
                     <a href="tel:07401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-1.5 text-xs sm:text-sm">
                         <div class="w-8 h-8 border border-pink-200 rounded-full flex items-center justify-center text-[#e05a88]">
                             <i class="fa-solid fa-phone text-xs"></i>
@@ -69,53 +66,47 @@
                         <span class="hidden sm:inline">07401 832 123</span>
                     </a>
                     
-                    <a href="#contact" class="bg-[#e05a88] text-white font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md text-xs sm:text-sm hover:bg-[#d24d79] transition-all">
+                    <a href="#contact" class="bg-[#e05a88] text-white font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md text-xs sm:text-sm hover:bg-[#d24d79] transition-all whitespace-nowrap">
                         Book Now
                     </a>
 
                     <!-- Tlačidlo Hamburger / Harmonika -->
-                    <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="w-9 h-9 flex items-center justify-center text-slate-700 hover:text-[#e05a88] focus:outline-none ml-1">
+                    <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="w-8 h-8 flex items-center justify-center text-slate-700 hover:text-[#e05a88] focus:outline-none">
                         <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
                     </button>
                 </div>
+
+                <!-- DESKTOP MENU POLOŽKY (Zobrazujú sa len nad 1200px) -->
+                <div class="hidden min-[1200px]:flex items-center gap-6 font-medium text-slate-600 min-[1200px]:ml-[280px]">
+                    <a href="#home" class="hover:text-[#e05a88] transition-colors">Home</a>
+                    <a href="#services" class="hover:text-[#e05a88] transition-colors">Services</a>
+                    <a href="#why-us" class="hover:text-[#e05a88] transition-colors">Why Choose Us</a>
+                    <a href="#pricing" class="hover:text-[#e05a88] transition-colors">Pricing</a>
+                    <a href="https://taticlean.co.uk/terms" class="hover:text-[#e05a88] transition-colors">Terms and Condition</a>
+                </div>
+
+                <!-- DESKTOP AKCIE (Zobrazujú sa len nad 1200px) -->
+                <div class="hidden min-[1200px]:flex items-center gap-4">
+                    <a href="tel:07401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-2">
+                        <div class="w-9 h-9 border border-pink-200 rounded-full flex items-center justify-center text-[#e05a88]">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <span>07401 832 123</span>
+                    </a>
+                    <a href="#contact" class="bg-[#e05a88] text-white font-bold px-5 py-2.5 rounded-full shadow-md hover:bg-[#d24d79] transition-all transform hover:-translate-y-0.5">
+                        Book Now
+                    </a>
+                </div>
+
             </div>
 
-            <!-- MOBILNÁ HARMONIKA (Menu položky rozbaľované na mobile) -->
-            <div id="mobileMenu" class="hidden md:hidden w-full flex-col gap-3 pt-3 pb-3 border-t border-pink-100 font-medium text-slate-600 text-sm">
+            <!-- MOBILNÁ HARMONIKA (Zobrazuje sa pri otvorení pod 1200px) -->
+            <div id="mobileMenu" class="hidden min-[1200px]:!hidden w-full flex-col gap-3 pt-2 pb-4 border-t border-pink-100 font-medium text-slate-600 text-sm">
                 <a href="#home" class="hover:text-[#e05a88] py-1 transition-colors">Home</a>
                 <a href="#services" class="hover:text-[#e05a88] py-1 transition-colors">Services</a>
                 <a href="#why-us" class="hover:text-[#e05a88] py-1 transition-colors">Why Choose Us</a>
                 <a href="#pricing" class="hover:text-[#e05a88] py-1 transition-colors">Pricing</a>
                 <a href="https://taticlean.co.uk/terms" class="hover:text-[#e05a88] py-1 transition-colors">Terms and Condition</a>
-            </div>
-
-            <!-- DESKTOP LOGO (Zobrazuje sa len na PC) -->
-            <div class="absolute -top-5 left-0 bg-white px-6 py-4 logo-ellipse shadow-md border border-pink-100 hidden md:flex items-center justify-center z-50 w-[264px] h-[168px] overflow-hidden">
-                <a href="#home" class="w-full h-full flex items-center justify-center">
-                    <img src="Logo.png" alt="Tati Cleaning Logo" class="w-full h-full object-cover scale-105 transition-transform hover:scale-110">
-                </a>
-            </div>
-
-            <!-- DESKTOP MENU POLOŽKY (Zobrazujú sa len na PC) -->
-            <div class="hidden md:flex items-center gap-6 font-medium text-slate-600 md:ml-[280px]">
-                <a href="#home" class="hover:text-[#e05a88] transition-colors">Home</a>
-                <a href="#services" class="hover:text-[#e05a88] transition-colors">Services</a>
-                <a href="#why-us" class="hover:text-[#e05a88] transition-colors">Why Choose Us</a>
-                <a href="#pricing" class="hover:text-[#e05a88] transition-colors">Pricing</a>
-                <a href="https://taticlean.co.uk/terms" class="hover:text-[#e05a88] transition-colors">Terms and Condition</a>
-            </div>
-
-            <!-- DESKTOP AKCIE (Zobrazujú sa len na PC) -->
-            <div class="hidden md:flex items-center gap-4">
-                <a href="tel:07401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-2">
-                    <div class="w-9 h-9 border border-pink-200 rounded-full flex items-center justify-center text-[#e05a88]">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <span>07401 832 123</span>
-                </a>
-                <a href="#contact" class="bg-[#e05a88] text-white font-bold px-5 py-2.5 rounded-full shadow-md hover:bg-[#d24d79] transition-all transform hover:-translate-y-0.5">
-                    Book Now
-                </a>
             </div>
 
         </div>
@@ -391,8 +382,6 @@
     </footer>
 
     <!-- SKRIPTY -->
-    
-    <!-- Skript 1: Otváranie / zatváranie mobilnej harmoniky -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -415,7 +404,6 @@
             }
           });
 
-          // Zavrieť harmoniku po kliknutí na akýkoľvek odkaz v menu
           mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
               mobileMenu.classList.add('hidden');
@@ -430,7 +418,6 @@
       });
     </script>
 
-    <!-- Skript 2: Efekt shiny hviezdičiek pre #home a footer -->
     <script>
       (function() {
         const targets = document.querySelectorAll('#home, footer');

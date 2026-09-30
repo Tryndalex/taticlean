@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional cleaning services in Reading RG1 & RG2. Reliable domestic, commercial, deep and end of tenancy cleaning from Tati Cleaning. Get your free quote today.">
     <title>Tati Cleaning | Professional Cleaning Services in Reading</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +13,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: var(--brand-pink-bg);
         }
         :root {
             --brand-pink-dark: #d24d79;
@@ -39,9 +41,39 @@
             pointer-events: none;
             z-index: 5;
         }
+
+        @keyframes success-pop {
+            from { opacity: 0; transform: scale(0.7) translateY(12px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .success-enter {
+            animation: success-pop 450ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+        .bg-white.p-8,
+        .bg-white.p-6 {
+            background-color: #f1d5de38;
+        }
+
+        footer.compact-footer {
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-layout {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .success-enter { animation: none; }
+        }
+
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 scroll-smooth">
+<body class="text-slate-800 scroll-smooth">
 
     <!-- NAVIGÁCIA (Prepínanie pri šírke 1200px) -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-pink-100 px-4 min-[1200px]:px-6 shadow-sm">
@@ -50,7 +82,13 @@
        <!-- SPOLOČNÉ OVÁLNE LOGO -->
         <div class="absolute -top-2 min-[1200px]:top-0 left-0 bg-white px-3 py-2 min-[1200px]:px-2 min-[1200px]:py-2 logo-ellipse shadow-md border border-pink-100 flex items-center justify-center z-50 w-[145px] h-[92px] sm:w-[260px] sm:h-[190px] min-[1200px]:w-[500px] min-[1200px]:h-[310px] overflow-hidden">
             <a href="#home" class="w-full h-full flex items-center justify-center">
-                <img src="Logo.png" alt="Tati Cleaning Logo" class="w-full h-full object-cover scale-110 transition-transform hover:scale-115">
+            <img src="Logo.webp"
+                    alt="Tati Cleaning Logo"
+                    width="1024"
+                    height="683"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover scale-110 transition-transform hover:scale-115">    
             </a>
         </div>
             <!-- HLAVNÁ LIŠTA NAVIGÁCIE (Pevná výška: pod 1200px = 64px / nad 1200px = 80px) -->
@@ -58,7 +96,7 @@
 
                 <!-- MOBILNÁ PRAVÁ ČASŤ (Aktivuje sa pod 1200px) -->
                 <div class="flex min-[1200px]:hidden items-center justify-end w-full ml-auto pl-[145px] sm:pl-[165px] gap-1.5 sm:gap-3">
-                    <a href="tel:07401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-1.5 text-xs sm:text-sm">
+                    <a href="tel:+447401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-1.5 text-xs sm:text-sm">
                         <div class="w-8 h-8 border border-pink-200 rounded-full flex items-center justify-center text-[#e05a88]">
                             <i class="fa-solid fa-phone text-xs"></i>
                         </div>
@@ -85,7 +123,7 @@
 </div>
                 <!-- DESKTOP AKCIE (Zobrazujú sa len nad 1200px) -->
                 <div class="hidden min-[1200px]:flex items-center gap-4">
-                    <a href="tel:07401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-2">
+                    <a href="tel:+447401832123" class="text-slate-700 font-semibold hover:text-[#e05a88] transition-colors flex items-center gap-2">
                         <div class="w-9 h-9 border border-pink-200 rounded-full flex items-center justify-center text-[#e05a88]">
                             <i class="fa-solid fa-phone"></i>
                         </div>
@@ -111,7 +149,13 @@
     </nav>
 
     <section id="home" class="relative w-full h-[500px] md:h-[600px] overflow-hidden">
-        <img src="kitchen.png" alt="Immaculate Kitchen" class="w-full h-full object-cover">
+        <img src="kitchen.webp"
+            alt="Immaculate Kitchen"
+            width="1408"
+            height="768"
+            fetchpriority="high"
+            decoding="async"
+            class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/40"></div>
         <div class="absolute inset-0 flex items-center justify-center px-6">
             <div class="max-w-4xl text-center text-white">
@@ -204,7 +248,7 @@
                         <i class="fa-solid fa-circle-check"></i>
                     </div>
                     <h4 class="font-bold text-slate-900 mb-2">Satisfaction Guaranteed</h4>
-                    <p class="text-xs text-slate-600 leading-relaxed">We aim for master satisfaction. If something is amiss, we fix it within 24 hours.</p>
+                    <p class="text-xs text-slate-600 leading-relaxed">We aim for complete satisfaction. If something is amiss, we fix it within 24 hours.</p>
                 </div>
             </div>
         </div>
@@ -213,7 +257,7 @@
     <section id="pricing" class="py-20 px-6 max-w-6xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Simple & Transparent Pricing</h2>
-            <p class="text-slate-600 mt-4 text-lg">No tricky surprises. Premium quality cleaning for fair brits rates.</p>
+            <p class="text-slate-600 mt-4 text-lg">No tricky surprises. Premium quality cleaning for fair rates.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -301,60 +345,89 @@
         </div>
     </section>
 
-    <section id="contact" class="py-20 px-6 max-w-4xl mx-auto">
-        <div class="text-center mb-12">
+    <section id="contact">
+
+        <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Get Your Free Quote Today</h2>
-            <p class="text-slate-600 mt-4">Fill out the brief form below and our Reading team will connect with you immediately.</p>
+            <p class="text-slate-600 mt-4">Fill out the brief form and our Reading team will connect with you soon.</p>
+        </div>
+        <div class="contact-info text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <h2 class="text-2xl font-extrabold text-[#d24d79]">Tati Clean</h2>
+            <a href="tel:07401832123" class="block text-lg font-bold text-[#e05a88] hover:text-[#d24d79] transition-colors"><i class="fa-solid fa-phone mr-2" aria-hidden="true"></i>07401 832 123</a>
+            <a href="mailto:taniyahfrankova@gmail.com" class="block text-lg font-bold text-[#e05a88] hover:text-[#d24d79] transition-colors"><i class="fa-solid fa-envelope mr-2" aria-hidden="true"></i>taniyahfrankova@gmail.com</a>
         </div>
 
-        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-white p-8 md:p-10 rounded-3xl border border-pink-100 shadow-xl relative overflow-hidden">
-            <input type="hidden" name="access_key" value="14419c5c-bb2e-46e0-bdf0-0569b033d694">
-            
-            <div class="absolute top-0 left-0 w-full h-2 bg-[#e05a88]"></div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Your Name</label>
-                    <input type="text" name="name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="John Doe" required>
+        <div class="w-full max-w-3xl mx-auto">
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-white p-8 md:p-10 rounded-3xl border border-pink-100 shadow-xl relative overflow-hidden">
+                <input type="hidden" name="access_key" value="14419c5c-bb2e-46e0-bdf0-0569b033d694">
+                <input type="checkbox" name="botcheck" style="display: none;">
+                
+                <div class="absolute top-0 left-0 w-full h-2 bg-[#e05a88]"></div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Your Name</label>
+                        <input type="text" name="name" autocomplete="name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="John Doe" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Phone Number</label>
+                        <input type="tel" name="phone" autocomplete="tel" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="07123 456789" required>
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Phone Number</label>
-                    <input type="tel" name="phone" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="07123 456789" required>
-                </div>
-            </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Email Address</label>
-                    <input type="email" name="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="john@example.com" required>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Email Address</label>
+                        <input type="email" name="email" autocomplete="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="john@example.com" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Service Needed</label>
+                        <select name="service" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm">
+                            <option value="Regular Domestic Cleaning">Regular Domestic Cleaning</option>
+                            <option value="End of Tenancy Clean">End of Tenancy Clean</option>
+                            <option value="Deep / Spring Clean">Deep / Spring Clean</option>
+                        </select>
+                    </div>
                 </div>
+
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Service Needed</label>
-                    <select name="service" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm">
-                        <option value="Regular Domestic Cleaning">Regular Domestic Cleaning</option>
-                        <option value="End of Tenancy Clean">End of Tenancy Clean</option>
-                        <option value="Deep / Spring Clean">Deep / Spring Clean</option>
-                    </select>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Message & Property Size</label>
+                    <textarea name="message" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="Tell us about your property (e.g. 3-bedroom house, pets...)" required></textarea>
                 </div>
-            </div>
 
-            <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Message & Property Size</label>
-                <textarea name="message" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[#e05a88] focus:bg-white transition-all text-sm" placeholder="Tell us about your property (e.g. 3-bedroom house, pets...)" required></textarea>
-            </div>
+                <button type="submit" class="w-full bg-[#e05a88] text-white font-bold py-4 rounded-xl shadow-lg hover:bg-[#d24d79] transition-all transform hover:-translate-y-0.5 tracking-wide text-sm uppercase">
+                    Send Estimate Request
+                </button>
+                <p id="formError" class="hidden text-sm text-red-700 text-center" role="alert"></p>
+                <p class="text-xs text-slate-500 text-center">
+                    We use your details to respond to your enquiry. See our
+                    <a href="privacy.html" class="text-[#e05a88] underline">Privacy Policy</a>. 
+                </p>
+            </form>
 
-            <button type="submit" class="w-full bg-[#e05a88] text-white font-bold py-4 rounded-xl shadow-lg hover:bg-[#d24d79] transition-all transform hover:-translate-y-0.5 tracking-wide text-sm uppercase">
-                Send Estimate Request
-            </button>
-        </form>
+            <div id="formSuccess" class="hidden text-center bg-[#fff0f5] p-10 rounded-3xl border border-pink-200 shadow-xl" role="status" aria-live="polite">
+                <div class="w-20 h-20 mx-auto mb-5 rounded-full bg-[#e05a88] text-white flex items-center justify-center text-4xl">
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900">Thank you for your enquiry!</h3>
+                <p class="text-slate-600 mt-3">Your request has been sent successfully. We will be in touch soon.</p>
+            </div>
+        </div>
+        
     </section>
 
-    <footer class="bg-slate-900 text-white pt-16 pb-8 px-6">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 pb-12 border-b border-slate-800">
+    <footer class="compact-footer bg-slate-900 text-white px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 pb-8 border-b border-slate-800">
             <div class="flex flex-col gap-4">
                 <div class="flex items-center gap-3">
                     <div class="bg-white p-2 rounded-xl inline-block">
-                        <img src="Logo.png" alt="Tati Cleaning Logo" class="h-12 w-auto object-contain">
+                            <img src="Logo.webp"
+                                alt="Tati Cleaning Logo"
+                                width="1024"
+                                height="683"
+                                loading="lazy"
+                                decoding="async"
+                                class="h-12 w-auto object-contain">
                     </div>
                 </div>
                 <p class="text-slate-400 text-xs leading-relaxed max-w-sm">Premium and friendly local domestic cleaning services across Reading and Berkshire surrounding communities.</p>
@@ -412,9 +485,65 @@
               }
             });
           });
+
+                    document.addEventListener('click', function(event) {
+                        const clickedInsideMenu = mobileMenu.contains(event.target);
+                        const clickedToggle = mobileMenuBtn.contains(event.target);
+                        const isOpen = !mobileMenu.classList.contains('hidden');
+
+                        if (isOpen && !clickedInsideMenu && !clickedToggle) {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('flex');
+                            menuIcon.classList.remove('fa-xmark');
+                            menuIcon.classList.add('fa-bars');
+                        }
+                    });
         }
       });
     </script>
+
+        <script>
+            (function() {
+                const form = document.getElementById('contactForm');
+                const successMessage = document.getElementById('formSuccess');
+                const errorMessage = document.getElementById('formError');
+                if (!form || !successMessage || !errorMessage) return;
+
+                const submitButton = form.querySelector('button[type="submit"]');
+                const buttonText = submitButton.textContent;
+
+                form.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+                    if (submitButton.disabled) return;
+
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Sending...';
+                    errorMessage.classList.add('hidden');
+
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: new FormData(form),
+                            headers: { Accept: 'application/json' }
+                        });
+                        const result = await response.json();
+
+                        if (!response.ok || !result.success) {
+                            throw new Error('Form submission failed');
+                        }
+
+                        form.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                        successMessage.classList.add('success-enter');
+                    } catch (error) {
+                        errorMessage.textContent = 'We could not send your request. Please try again or call us on 07401 832 123.';
+                        errorMessage.classList.remove('hidden');
+                        submitButton.disabled = false;
+                        submitButton.textContent = buttonText;
+                    }
+                });
+            })();
+        </script>
 
     <script>
       (function() {
@@ -429,6 +558,9 @@
           const ctx = canvas.getContext('2d');
           const sparkles = [];
           const maxSparkles = 25;
+          const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+          let isVisible = false;
+          let animationFrame = null;
 
           function resize() {
             canvas.width = target.offsetWidth;
@@ -491,17 +623,48 @@
           }
 
           function animate() {
+                        if (!isVisible || motionPreference.matches) {
+                            animationFrame = null;
+                            return;
+                        }
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             sparkles.forEach(s => {
               s.update();
               s.draw();
             });
-            requestAnimationFrame(animate);
+                        animationFrame = requestAnimationFrame(animate);
           }
 
-          animate();
+                    function startAnimation() {
+                        if (isVisible && !motionPreference.matches && animationFrame === null) {
+                            animationFrame = requestAnimationFrame(animate);
+                        }
+                    }
+
+                    const observer = new IntersectionObserver(entries => {
+                        isVisible = entries.some(entry => entry.isIntersecting);
+                        if (isVisible) {
+                            startAnimation();
+                        } else if (animationFrame !== null) {
+                            cancelAnimationFrame(animationFrame);
+                            animationFrame = null;
+                        }
+                    });
+                    observer.observe(target);
+
+                    motionPreference.addEventListener('change', event => {
+                        if (event.matches && animationFrame !== null) {
+                            cancelAnimationFrame(animationFrame);
+                            animationFrame = null;
+                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        } else {
+                            startAnimation();
+                        }
+                    });
         });
       })();
     </script>
+
 </body>
 </html>
